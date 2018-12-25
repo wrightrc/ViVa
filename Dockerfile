@@ -32,6 +32,6 @@ RUN R -f /tmp/install.R
 # Install r1001genomes from github repo
 RUN R -e 'devtools::install_github("wrightrc/r1001genomes", ref = "docker-stable")'
 
-COPY ViVa /srv/shiny-server/
+COPY mountpoints/apps/ /srv/shiny-server/
 
 CMD ["/usr/bin/shiny-server.sh"]
