@@ -3,6 +3,7 @@ FROM rocker/shiny-verse:3.5.1
 RUN apt-get -y install libjpeg-dev
 
 RUN install2.r cowplot \
+	gginnards \
 	ggmap \
 	ggthemes \
 	ggpmisc \
@@ -19,6 +20,11 @@ RUN install2.r cowplot \
 	shinythemes \
 	stringr \
 	BiocManager
+
+# Install difficult BioC packages
+RUN R -e 'devtools::install_github("knausb/vcfR")'
+
+RUN R -e 'BiocManager::install("VariantAnnotation")'
 
 # Setup an R script to install bioconductor packages
 ADD install.R /tmp/

@@ -16,14 +16,14 @@ pkgs <- c(
     "DECIPHER",
     "GenomicFeatures",
     "VariantAnnotation",
-    "vcfR",
+    #"vcfR",
     "XVector"
     )
 
-ap.db <- available.packages(contrib.url(BiocManager::repositories()))
-ap <- rownames(ap.db)
+#ap.db <- available.packages(contrib.url(BiocManager::repositories()))
+#ap <- rownames(ap.db)
 
-pkgs_to_install <- pkgs[pkgs %in% ap]
+pkgs_to_install <- pkgs#[pkgs %in% ap]
 
 BiocManager::install(pkgs_to_install, update=FALSE, ask=FALSE)
 
